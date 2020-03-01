@@ -5,7 +5,8 @@ import TVShowsContainer from "./components/TVShowsContainer";
 
 function App() {
 	return (
-		<div>
+		<div id="app-container">
+			<h1>TV Shows On Today</h1>
 			<TVShowsContainer />
 		</div>
 	);

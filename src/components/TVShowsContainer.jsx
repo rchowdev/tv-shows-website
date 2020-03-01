@@ -6,18 +6,19 @@ import TVShowCard from "./TVShowCard";
 const TVShowsContainer = () => {
 	const [shows, setShows] = useState([]);
 
-	const uniqArr = arr => {
+	/* Returns unique array of tv shows */
+	const uniqShows = shows => {
 		const set = new Set();
-		const uniq = [];
+		const uniqShows = [];
 
-		for (let i = 0; i < arr.length; i++) {
-			if (!set.has(arr[i].id)) {
-				set.add(arr[i].id);
-				uniq.push(arr[i]);
+		for (let i = 0; i < shows.length; i++) {
+			if (!set.has(shows[i].id)) {
+				set.add(shows[i].id);
+				uniqShows.push(shows[i]);
 			}
 		}
 
-		return uniq;
+		return uniqShows;
 	};
 
 	// Fetch Today's TV Shows
@@ -27,8 +28,8 @@ const TVShowsContainer = () => {
 			const data = await fetch(scheduleUrl);
 			const todaysEpisodes = await data.json();
 			const todaysShows = todaysEpisodes.map(episode => episode.show);
-			const uniqShows = uniqArr(todaysShows);
-			setShows(uniqShows);
+			const uniqueShows = uniqShows(todaysShows);
+			setShows(uniqueShows);
 		};
 
 		const today = moment().format("YYYY-MM-DD");
