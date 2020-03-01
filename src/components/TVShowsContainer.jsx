@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import moment from "moment";
 
+import TVShowCard from "./TVShowCard";
+
 const TVShowsContainer = () => {
 	const [shows, setShows] = useState([]);
 
@@ -19,10 +21,10 @@ const TVShowsContainer = () => {
 	}, []);
 
 	return (
-		<div>
+		<div id="tv-show-container">
 			<ul>
 				{shows.map(show => (
-					<li>{show.name}</li>
+					<TVShowCard key={show.id} show={show} />
 				))}
 			</ul>
 		</div>
