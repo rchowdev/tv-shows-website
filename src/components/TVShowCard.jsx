@@ -5,10 +5,12 @@ const TVShowCard = ({ show }) => {
 		? show.image.medium
 		: "https://go-gae-image-api-example-dot-gae-lab-001.appspot.com/img?f=img-api-example/2.jpg";
 	return (
-		<li class="tv-show-card">
-			<h1>{show.name}</h1>
+		<div className="tv-show-card">
+			<a href={show.officialSite}>
+				<h3>{show.name}</h3>
+			</a>
 			<img src={image} alt={show.name} />
-		</li>
+		</div>
 	);
 };
 
